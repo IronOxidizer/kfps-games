@@ -1,4 +1,4 @@
-# 10000fps-gaming
+# 10000fps-games
 Games are slow, I want to know why. If there's no reason why, I will make them fast. Porting games to 10000fps.
 
 Inspired by [Mincraft with C++ and Vulkan](https://vazgriz.com/312/creating-minecraft-in-one-week-with-c-and-vulkan-week-3/). Yeah, he got [Minecraft running at 2000+fps](https://vazgriz.com/wp-content/uploads/2020/06/block_selection-1.png)...
