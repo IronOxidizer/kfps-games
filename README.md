@@ -73,7 +73,7 @@ Clang has the major advantage of being extremely portable and can cross compile 
 | CMake     | C++      | 2     | 3      | 1           |
 | **Ninja** | C++      | 1     | 2      | 2           |
 
-Although Make is the most common build system for class or small C projects, it's fairly slow while being much less portable than the alternatives
+Although Make is the most common build system for classical or small C projects, it's fairly slow while being much less portable than the alternatives
 
 CMake has been the industry standard for cross-platform C and C++ projects. Its main disadvantage is its huge tooling and its support for many backends which makes it very bloated and complex, especially for small, simple C projects.
 
