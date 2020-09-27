@@ -55,15 +55,15 @@ If you're interested, [here's some comparisons between the libcs](https://www.et
 
 |           | Language | Speed | Weight | Portability |
 |-----------|----------|-------|--------|-------------|
-| GCC       | C++      | 1     | 2      | 2           |
-| **Clang** | C++      | 2     | 3      | 1           |
+| GCC       | C++      | 1     | 3      | 2           |
+| **Clang** | C++      | 2     | 2      | 1           |
 | TCC       | C        | 3     | 1      | 3           |
 
 Unfortunately, GCC has been built with C++ ever since 2008. The prospect of having a self-hosting compiler using only C would have made this decision easy, however, the added complexity of C++ makes GCC much less attractive.
 
 TCC was never a real consideration since it's no longer maintained, has very limited portability, and has much worse performance than the other two. However, it's my favorite C compiler in the sense that it's impossibly tiny, insanely fast at compiling, and self-hosting.
 
-Clang has the major advantage of being extremely portable and can cross compile without needing to compile a separate compiler. Additionally, it has better native tooling on Windows and generally provides a better debugging experience. Although there is a speed difference, it's marginal at less than 5%.
+Clang has the major advantage of being extremely portable and can cross compile without needing to compile a separate compiler. Additionally, it has better native tooling on Windows and generally provides a better debugging experience along with generally better compile times. Although there is a speed difference of the output, it's marginal at less than 5%.
 
 ### Build System
 
