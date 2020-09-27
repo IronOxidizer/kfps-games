@@ -24,7 +24,7 @@ Final choice will be the technology that is **bolded**
 | Retained OpenGL  | C        | 2     | 3      | 2           | 2          |
 | **Vulkan**       | C        | 1     | 2      | 3           | 3          |
 
-The goal of this project is to maximize performance, as such, Vulkan is the best rendering API to achieve that goal regardless of it's downsides as complex games are usually GPU bound which can be heavily mitigated based on the performance of the rendering API.
+The goal of this project is to maximize performance, as such, Vulkan is the best rendering API to achieve that goal regardless of it's downsides. Its low CPU overhead, multithread compatability, and fine-grained control over the GPU makes it possible to leverage as much of a system's hardware as possible for maximum fps.
 
 ### Language
 
@@ -39,7 +39,7 @@ A small explanation before elaborating on my selection. C and Rust can be just a
 
 C++'s meta-programming system (particularly templates) often give it a performance advantage over C. The same implementation can be done in C but it would require significantly more work.
 
-Rust also has a very powerful meta-programming system with it's procedural macros, but often times getting high performance out of Rust means using unsafe which negates some of it's advantages. additionally, Rust does not always have native bindings to core libraries which will reduce performance, especially if it can't be statically compiled.
+Rust also has a very powerful meta-programming system with it's procedural macros, but often times, getting high performance out of Rust means using unsafe which negates some of it's advantages. Additionally, Rust does not always have native bindings to core libraries which will reduce performance, especially if it can't be statically compiled.
 
 Go is automatically garbage collected and binds much less cleanly to Vulkan.
 
@@ -73,7 +73,7 @@ Clang has the major advantage of being extremely portable and can cross compile 
 | CMake     | C++      | 2     | 3      | 1           |
 | **Ninja** | C++      | 1     | 2      | 2           |
 
-Although Make is the most common build system for class or small C projects, it's fairly slow while being much less portable than the alternatives
+Although Make is the most common build system for classical or small C projects, it's fairly slow while being much less portable than the alternatives
 
 CMake has been the industry standard for cross-platform C and C++ projects. Its main disadvantage is its huge tooling and its support for many backends which makes it very bloated and complex, especially for small, simple C projects.
 
