@@ -1,0 +1,6 @@
+group("hello-triangle") {
+    deps = [
+        "//src:hello-triangle",
+        "//src:shaders",
+    ]
+}

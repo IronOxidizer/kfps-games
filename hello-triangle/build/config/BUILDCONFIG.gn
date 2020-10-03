@@ -1,0 +1,23 @@
+if (target_os == "") {
+    target_os = host_os
+}
+if (target_cpu == "") {
+    target_cpu = host_cpu
+}
+if (current_cpu == "") {
+    current_cpu = target_cpu
+}
+if (current_os == "") {
+    current_os = target_os
+}
+
+declare_args() {
+    # TODO: Create os specific configs instead of doing it generically here,
+    # Change GLSLC dir based on OS
+    cflags = ["-pipe", "-flto", "-march=native", "-mtune=native", "-mcpu=native",
+        "-Ofast", "-fno-stack-protector", "-fvisibility=hidden", "-fno-pic", "-fno-pie"]
+    ldflags = ["-flto", "-Wl,-flto,-O2,--gc-sections,--as-needed,-s,-z,now"]
+    libs = ["c", "glfw"]
+}
+
+set_default_toolchain("//build/toolchain:clang")

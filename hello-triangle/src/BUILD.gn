@@ -1,0 +1,66 @@
+template("shader") {
+    code_gen_target_name = target_name + "_code_gen"
+
+    # Intermediate target to convert IDL to C source. Note that the name is
+    # based on the name the invoker of the template specified. This way, each
+    # time the template is invoked we get a unique intermediate action name
+    # (since all target names are in the global scope).
+    action_foreach(code_gen_target_name) {
+    # Access the scope defined by the invoker via the implicit "invoker"
+    # variable.
+    sources = invoker.sources
+
+    # Note that we need an absolute path for our script file name. The
+    # current directory when executing this code will be that of the invoker
+    # (this is why we can use the "sources" directly above without having to
+    # rebase all of the paths). But if we need to reference a script relative
+    # to the template file, we'll need to use an absolute path instead.
+    script = "//tools/idl/idl_code_generator.py"
+
+    # Tell GN how to expand output names given the sources.
+    # See "gn help source_expansion" for more.
+    outputs = [ "$target_gen_dir/{{source_name_part}}.cc",
+            "$target_gen_dir/{{source_name_part}}.h" ]
+    }
+
+    # Name the source set the same as the template invocation so instancing
+    # this template produces something that other targets can link to in their
+    # deps.
+    source_set(target_name) {
+    # Generates the list of sources, we get these from the action_foreach
+    # above.
+    sources = get_target_outputs(":$code_gen_target_name")
+
+    # This target depends on the files produced by the above code gen target.
+    deps = [ ":$code_gen_target_name" ]
+    }
+}
+
+executable("hello-triangle") {
+    sources = [
+        "main.c",
+    ]
+}
+
+action_foreach("shaders") {
+    # script_executable [optional], See .gn for how can call glslc
+    #   Path to specific Python executable or other interpreter to use in
+    #   action targets and exec_script calls. By default GN searches the
+    #   PATH for Python to execute these scripts.
+
+    #   If set to the empty string, the path specified in action targets
+    #   and exec_script calls will be executed directly.
+    script = "/usr/bin/glslc"
+
+    sources = [ "shader.frag", "shader.vert" ]
+
+    outputs = [ "$root_build_dir/{{source_file_part}}.spv" ]
+
+    # Note that since "args" is opaque to GN, if you specify paths here, you
+    # will need to convert it to be relative to the build directory using
+    # rebase_path().
+    args = [
+        "{{source}}",
+        "-o",
+        rebase_path(root_build_dir) + "/{{source_file_part}}.spv" ]
+}
