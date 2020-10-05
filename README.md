@@ -226,10 +226,10 @@ Linker Flags:
 
 - [-O2](https://manpages.debian.org/experimental/lld-10/ld.lld-10.1.en.html#O): -O2 is the highest level of linker optimization for lld.
 
-- [--as-needed](https://stackoverflow.com/questions/6411937#6412134): Disables linking for libraries that don't appear to be used, even when explicitly specified potentially reducing executable size.
-
 - [--gc-sections](https://manpages.debian.org/experimental/lld-10/ld.lld-10.1.en.html#-gc-sections):
 Remove any unused code from the executable.
+
+- [--as-needed](https://stackoverflow.com/questions/6411937#6412134): Disables linking for libraries that don't appear to be used, even when explicitly specified potentially reducing executable size.
 
 - [-s](https://manpages.debian.org/experimental/lld-10/ld.lld-10.1.en.html#-strip-all): The same as `--strip-all`, strips all symbols reducing executable size.
 
