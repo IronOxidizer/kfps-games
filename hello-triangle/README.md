@@ -36,11 +36,16 @@ Optimization results (1000000 frame average)
 
 ### Compile on Windows
 
+Have the following in `PATH`:
 - gn
 - ninja
 - clang
 - glslc
-- vulkan headers in src
-- GLFW headers in src
-- glfw3dll.lib in src
+
+Have the following in `src`:
+- vulkan headers folder
+- GLFW header folder
+- glfw3dll.lib
+
+Have the following in `out`:
 - glfw3.dll in out
