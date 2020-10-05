@@ -14,10 +14,21 @@ if (current_os == "") {
 declare_args() {
     # TODO: Create os specific configs instead of doing it generically here,
     # Change GLSLC dir based on OS
-    cflags = ["-pipe", "-flto", "-march=native", "-mtune=native", "-mcpu=native",
-        "-Ofast", "-fno-stack-protector", "-fvisibility=hidden", "-fno-pic", "-fno-pie"]
-    ldflags = ["-flto", "-Wl,-flto,-O2,--gc-sections,--as-needed,-s,-z,now"]
-    libs = ["c", "glfw"]
+
+    if (target_os == "win") {
+        glslc_path = "C:/VulkanSDK/1.2.148.1/Bin/glslc.exe"
+        stamp_command = "cmd /c type NUL > {{output}}"
+        include_dirs = ["//include"]
+        lib_dirs = ["."]
+        libs = ["glfw3dll"]
+    } else {
+        glslc_path = "/usr/bin/glslc"
+        stamp_command = "touch {{output}}"
+        cflags = ["-pipe", "-flto", "-march=native", "-mtune=native", "-mcpu=native",
+            "-Ofast", "-fno-stack-protector", "-fvisibility=hidden", "-fno-pic", "-fno-pie"]
+        ldflags = ["-flto", "-fuse-ld=lld", "-Wl,-flto,-O2,--gc-sections,--as-needed,-s,-z,now"]
+        libs = ["c", "glfw"]
+    }
 }
 
 set_default_toolchain("//build/toolchain:clang")

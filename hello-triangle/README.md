@@ -16,7 +16,7 @@ clear && ninja -C . && ./hello-triangle && echo $?
 - libglfw
 - libvulkan
 
-#### Compile time
+#### Compile
 
 - gn
 - ninja
@@ -25,3 +25,14 @@ clear && ninja -C . && ./hello-triangle && echo $?
 - libc headers
 - vulkan headers
 - glfw headers
+
+### Compile on Windows
+
+- gn
+- ninja
+- clang
+- glslc
+- vulkan headers in src
+- GLFW headers in src
+- glfw3dll.lib in src
+- glfw3.dll in out

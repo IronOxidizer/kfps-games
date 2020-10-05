@@ -1,2 +1,10 @@
 *.vscode*
 *out*
+*GLFW*
+*vulkan*
+*.dll
+*.lib
+*.a
+*.exe
+*.o
+*.spv

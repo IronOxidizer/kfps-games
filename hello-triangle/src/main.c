@@ -6,7 +6,7 @@
 #include <time.h>
 
 #define GLFW_INCLUDE_VULKAN
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 
 #ifdef NDEBUG
 void glfwError(int code, const char * message) {
@@ -502,7 +502,7 @@ int main(void) {
     presentInfo.pSwapchains = swapChains;
 
     // Setup frame counter, output every 10000 frames
-    uint frameCount = 10000;
+    uint32_t frameCount = 10000;
     clock_t oldClock = clock();
     clock_t nowClock = 0;
 

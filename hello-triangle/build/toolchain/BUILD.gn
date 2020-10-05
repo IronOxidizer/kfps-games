@@ -11,7 +11,7 @@ toolchain("clang") {
     tool("link") {
         outfile = "{{target_output_name}}{{output_extension}}"
         rspfile = "$outfile.rsp"
-        command = "clang {{ldflags}} -o $outfile @$rspfile {{solibs}} {{libs}}"
+        command = "clang {{ldflags}} -o $outfile @$rspfile {{solibs}} {{libs}} -v"
         description = "LINK $outfile"
         default_output_dir = "{{root_out_dir}}"
         rspfile_content = "{{inputs}}"
@@ -19,7 +19,7 @@ toolchain("clang") {
     }
 
     tool("stamp") {
-        command = "touch {{output}}"
+        command = stamp_command
         description = "STAMP {{output}}"
     }
 }

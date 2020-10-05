@@ -15,6 +15,21 @@ Disclaimer: [Extremely high framerates (+5000fps)](https://en.wikipedia.org/wiki
 - [ ] hello-cube
 - [ ] voxel-game
 
+## Build Instructions
+
+It's prefered to download dependencies and dev packages from your package manager, but if they're not available, you can find them here:
+
+- `gn` https://gn.googlesource.com/gn/
+- `ninja` https://github.com/ninja-build/ninja/releases
+- `clang` https://releases.llvm.org/download.html
+- `glslc` https://vulkan.lunarg.com/sdk/home
+- `vulkan headers` https://vulkan.lunarg.com/sdk/home
+- `glfw headers` https://www.glfw.org/download
+- `vulkan dlls` https://vulkan.lunarg.com/sdk/home
+- `glfw dlls` https://www.glfw.org/download
+
+On windows, place the `vulkan` and `GLFW` include folders inside `src`.
+
 ## Technologies
 
 - critical metric: Runtime metric, or compile/dependency metric if no runtime exists
