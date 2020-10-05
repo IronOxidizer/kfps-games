@@ -12,9 +12,9 @@ clear && ninja -C . && ./hello-triangle && echo $?
 
 Optimization results (1000000 frame average)
 
-Debug: 23.6kfps
-No Debug: 34.7kfps
-No Debug + Compile Optimize: 35.5kfps
+- Debug: 23.6kfps
+- No Debug: 34.7kfps
+- No Debug + Compile Optimize: 35.5kfps
 
 ## Dependencies
 
