@@ -21,7 +21,7 @@ declare_args() {
         include_dirs = ["//include"]
         lib_dirs = ["."]
         libs = ["glfw3dll"]
-        output_extension = ".exe"
+        output_extension = "exe"
     } else {
         glslc_path = "/usr/bin/glslc"
         stamp_command = "touch {{output}}"
