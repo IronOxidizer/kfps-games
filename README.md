@@ -28,7 +28,9 @@ It's prefered to download dependencies and dev packages from your package manage
 - `vulkan dlls` https://vulkan.lunarg.com/sdk/home
 - `glfw dlls` https://www.glfw.org/download
 
-On windows, place the `vulkan` and `GLFW` include folders inside `src`.
+On windows, place the `vulkan` + `GLFW` include folders and `glfw3dll.lib` inside `src`.
+
+To run on windows, place `glfw3.dll` in the same library as the executable.
 
 ## Technologies
 
