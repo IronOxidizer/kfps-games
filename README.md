@@ -10,7 +10,7 @@ Disclaimer: [Extremely high framerates (+5000fps)](https://en.wikipedia.org/wiki
 
 ## Milestone Demos
 
-- [x] [hello-triangle](hello-triangle/README.md) ~ (29.7kfps, 18kB executable, CPU bound)
+- [x] [hello-triangle](hello-triangle/README.md) ~ (44.2kfps, 13kB executable, CPU bound)
 - [ ] pong
 - [ ] hello-cube
 - [ ] voxel-game
@@ -203,7 +203,7 @@ More tips here: https://developer.nvidia.com/blog/vulkan-dos-donts/
 
 ```sh
 CFLAGS='-pipe -flto -march=native -mtune=native -mcpu=native -Ofast -fno-stack-protector -fvisibility=hidden -fno-pic -fno-pie'
-LDFLAGS='-flto -Wl,-flto,-O2,--gc-sections,,--as-needed,-s,-z,now'
+LDFLAGS="-flto", "-fuse-ld=lld", "-Wl,-O2,--gc-sections,--as-needed,-s"
 ```
 
 - [-pipe](https://stackoverflow.com/questions/1512933): Use more memory when compiling to avoid writing to disk and improve parallelization which improves compile speed.
@@ -222,7 +222,7 @@ LDFLAGS='-flto -Wl,-flto,-O2,--gc-sections,,--as-needed,-s,-z,now'
 
 Linker Flags:
 
-- [-flto -Wl,-flto](https://llvm.org/docs/LinkTimeOptimization.html): Same as previous flto but enables LTO for the linker.
+- [-flto, -fuse-ld=lld](https://llvm.org/docs/LinkTimeOptimization.html): Same as previous flto but enables LTO for the linker using lld.
 
 - [-O2](https://manpages.debian.org/experimental/lld-10/ld.lld-10.1.en.html#O): -O2 is the highest level of linker optimization for lld.
 
@@ -233,12 +233,10 @@ Remove any unused code from the executable.
 
 - [-s](https://manpages.debian.org/experimental/lld-10/ld.lld-10.1.en.html#-strip-all): The same as `--strip-all`, strips all symbols reducing executable size.
 
-- [-z,now](https://news.ycombinator.com/item?id=18874352): Resolves function references to shared libraries at startup time instead of runtime, potentially improving runtime performance.
-
 Debugging:
 
 ```sh
--march=native -g3 -ggdb3 -Og -fvisibility=default
+-g3 -ggdb3 -Og -fvisibility=default
 ```
 
 #### Strip

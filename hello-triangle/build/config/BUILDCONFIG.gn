@@ -15,6 +15,8 @@ declare_args() {
     # TODO: Create os specific configs instead of doing it generically here,
     # Change GLSLC dir based on OS
 
+    #cflags = ["-g3", "-ggdb3", "-Og", "-fvisibility=default"]
+
     if (target_os == "win") {
         glslc_path = "C:/VulkanSDK/1.2.148.1/Bin/glslc.exe"
         stamp_command = "cmd /c type NUL > {{output}}"
@@ -27,7 +29,7 @@ declare_args() {
         stamp_command = "touch {{output}}"
         cflags = ["-pipe", "-flto", "-march=native", "-mtune=native", "-mcpu=native",
             "-Ofast", "-fno-stack-protector", "-fvisibility=hidden", "-fno-pic", "-fno-pie"]
-        ldflags = ["-flto", "-fuse-ld=lld", "-Wl,-flto,-O2,--gc-sections,--as-needed,-s,-z,now"]
+        ldflags = ["-flto", "-fuse-ld=lld", "-Wl,-O2,--gc-sections,--as-needed,-s"]
         libs = ["c", "glfw"]
     }
 }

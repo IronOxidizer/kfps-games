@@ -8,6 +8,14 @@ clear && ninja -C . && ./hello-triangle && echo $?
 ```
 ![hello-triangle](https://user-images.githubusercontent.com/60191958/94946985-ee116180-04aa-11eb-8d91-059c1f29fcf8.png)
 
+## Benchmarks
+
+Optimization results (1000000 frame average)
+
+Debug: 23.6kfps
+No Debug: 34.7kfps
+No Debug + Compile Optimize: 35.5kfps
+
 ## Dependencies
 
 #### Runtime
