@@ -10,7 +10,7 @@ Disclaimer: [Extremely high framerates (+5000fps)](https://en.wikipedia.org/wiki
 
 ## Milestone Demos
 
-- [x] [hello-triangle](hello-triangle/README.md) ~ (44.2kfps, 13kB executable, CPU bound)
+- [x] [hello-triangle](hello-triangle/README.md) ~ (45.5kfps, 13kB executable)
 - [ ] pong
 - [ ] hello-cube
 - [ ] voxel-game
