@@ -34,7 +34,7 @@ To run on windows, place `glfw3.dll` in the same library as the executable.
 
 ## Technologies
 
-TODO: Use GWSL instead of GLSL for WebGPU support and finer control over SPIR-V generation
+TODO: Use WGSL instead of GLSL. Adds WebGPU support and finer control over SPIR-V generation
 
 - critical metric: Runtime metric, or compile/dependency metric if no runtime exists
 
