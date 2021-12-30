@@ -143,7 +143,7 @@ GLFW is one of the lightest windowing toolkit. It provides simple input handling
 
 I am not interested in either of these. However, if someone submitted a PR that implement them in a way that does not impact performance, I wouldn't be opposed to accepting it.
 
-If I did implement audio, it would probably use [OpenSL ES](https://www.khronos.org/opensles/) with [Opus](https://opus-codec.org/).
+If I did implement audio, it would probably use [OpenSL ES](https://www.khronos.org/opensles/) or [OpenMax AL](https://www.khronos.org/openmaxal); with [Opus](https://opus-codec.org/).
 
 As for networking, I would probably use a cross-platform and async interface to UDP like [libuv](https://libuv.org/), [enet](https://github.com/lsalzman/enet), or [Valve GNS](https://github.com/ValveSoftware/GameNetworkingSockets).
 
